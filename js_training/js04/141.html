@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM 이해</title>
+  </head>
+  <body>
+    <div id="div1">hello DOM</div>
+    <ul>
+      <li>list item1</li>
+      <li>list item2</li>
+    </ul>
+    <div id="content">
+      <div>
+        HTML 문서의 태그들은 JS에서 노드가 됩니다. Node는 여러 하위 타입을
+        가지게 됩니다.
+      </div>
+      <div>
+        다음은 주요 노트 타입의 목록이고 각 타입은 상수로 정의되어 있습니다.
+      </div>
+      <div>
+        <ul>
+          <li>ELEMENT_NODE = 1 (ex: body, a, p, script)</li>
+          <li>ATTRIBUTE_NODE = 2 (ex: class="hello")</li>
+          <li>TEXT_NODE = 3 (ex: 텍스트)</li>
+          <li>COMMENT_NODE = 8 (ex: 주석)</li>
+          <li>DOCUMENT_NODE = 9 (ex: document)</li>
+          <li>DOCUMENT_TYPE_NODE = 10(ex: !DOCTYPE html>)</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      const div1El = document.getElementById("div1");
+      console.log(div1El.innerHTML);
+
+      console.log(div1El.nodeType);
+      console.log(div1El.nodeType === Node.ELEMENT_NODE);
+
+      console.log(div1El.constructor);
+      console.log(div1El instanceof HTMLDivElement);
+      console.log(div1El instanceof HTMLElement);
+      console.log(div1El instanceof Element);
+      console.log(div1El instanceof Node);
+      console.log(Element.prototype);
+      console.log(div1El.tagName);
+
+      const div1El2 = document.querySelector("#div1");
+      console.log(div1El2.innerHTML);
+
+      const liEls = document.querySelectorAll("ul li");
+      console.log(liEls.item(0).innerHTML);
+      console.log(liEls.item(1).textContent);
+    </script>
+  </body>
+</html>
